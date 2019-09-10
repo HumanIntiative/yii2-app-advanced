@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-$logoMini = Html::tag('span', 'PMP', ['class'=>'logo-mini']);
+$logoMini = Html::tag('span', 'HI', ['class'=>'logo-mini']);
 $logoLg = Html::tag('span', Yii::$app->name, ['class'=>'logo-lg']); ?>
 
 <header class="main-header">

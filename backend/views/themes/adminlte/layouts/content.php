@@ -34,6 +34,6 @@ use dmstr\widgets\Alert; ?>
     <div class="pull-right hidden-xs">
         <b>Version</b> <?= getenv('APP_VERSION') ?>
     </div>
-    <strong>Copyright &copy; 2015-<?= date('Y') ?> <a href="http://project.dev"><?= getenv('APP_TITLE') ?></a>.</strong>
+    <strong>Copyright &copy; <?= date('Y') ?> <a href="http://hinstitute.dev"><?= getenv('APP_TITLE') ?></a>.</strong>
     All rights reserved.
 </footer>

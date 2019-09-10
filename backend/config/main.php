@@ -45,6 +45,7 @@ return [
             ],
             // 'as additional' => 'pkpudev\components\web\ViewBehavior',
         ],
+        'db' => require(__DIR__.'/db.php'),
     ],
     'params' => $params,
 ];
