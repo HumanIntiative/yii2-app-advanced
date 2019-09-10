@@ -1,9 +1,8 @@
 <?php
 
-namespace backend\components\traits;
+namespace backend\components\web;
 
-use Yii;
-use app\models\Branch;
+use backend\models\Branch;
 use mdm\admin\components\Helper;
 
 trait WebUserTrait

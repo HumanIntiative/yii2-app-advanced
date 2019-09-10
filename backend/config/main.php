@@ -16,11 +16,7 @@ return [
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
-        'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
-        ],
+        'user' => require(__DIR__.'/user.php'),
         'session' => [
             // this is the name of the session cookie used for login on the backend
             'name' => 'advanced-backend',
@@ -37,14 +33,18 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
+        /*'urlManager' => [
+            'class'=>'backend\components\web\UrlManager',
+        ],*/
+        'view' => [
+            'class' => 'yii\web\View',
+            'theme' => [
+                'pathMap' => [
+                    '@app/views' => '@app/views/themes/adminlte'
+                ],
             ],
+            // 'as additional' => 'pkpudev\components\web\ViewBehavior',
         ],
-        */
     ],
     'params' => $params,
 ];
