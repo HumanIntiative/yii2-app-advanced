@@ -2,8 +2,6 @@
 
 $db = require(__DIR__ . '/db.php');
 
-var_dump($db);
-
 return [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
