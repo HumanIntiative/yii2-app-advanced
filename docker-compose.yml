@@ -3,9 +3,7 @@ version: '3.2'
 services:
 
   frontend:
-    build: 
-      context: .
-      dockerfile: docker/Dockerfile-front
+    build: frontend
     ports:
       - 20080:80
     volumes:
@@ -13,9 +11,7 @@ services:
       - ./:/app
 
   backend:
-    build: 
-      context: .
-      dockerfile: docker/Dockerfile-back
+    build: backend
     ports:
       - 21080:80
     volumes:
