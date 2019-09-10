@@ -1,4 +1,7 @@
 <?php
+
+$db = require(Yii::getAlias('@common/config/db.php'));
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -13,6 +16,14 @@ return [
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            'itemTable' => 'auth_item',
+            'itemChildTable' => 'auth_item_child',
+            'assignmentTable' => 'auth_assignment',
+            'ruleTable' => 'auth_rule',
+            'defaultRoles' => ['Employee'],
+        ],
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
@@ -45,7 +56,7 @@ return [
             ],
             // 'as additional' => 'pkpudev\components\web\ViewBehavior',
         ],
-        'db' => require(__DIR__.'/db.php'),
+        'db' => $db,
     ],
     'params' => $params,
 ];

@@ -20,6 +20,8 @@ services:
 
   mysql:
     image: pkpudev/mariadb-yii2:1.0
+    ports:
+      - 33066:3306
     environment:
       - MYSQL_USER=institute
       - MYSQL_PASSWORD=password
