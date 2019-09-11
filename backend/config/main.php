@@ -16,16 +16,8 @@ return [
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
-        'authManager' => [
-            'class' => 'yii\rbac\DbManager',
-            'itemTable' => 'auth_item',
-            'itemChildTable' => 'auth_item_child',
-            'assignmentTable' => 'auth_assignment',
-            'ruleTable' => 'auth_rule',
-            'defaultRoles' => ['Employee'],
-        ],
         'request' => [
-            'csrfParam' => '_csrf-backend',
+            'cookieValidationKey' => getenv('COOKIE_VALIDATION_KEY'),
         ],
         'user' => require(__DIR__.'/user.php'),
         'session' => [
@@ -44,9 +36,9 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*'urlManager' => [
+        'urlManager' => [
             'class'=>'backend\components\web\UrlManager',
-        ],*/
+        ],
         'view' => [
             'class' => 'yii\web\View',
             'theme' => [
@@ -57,6 +49,14 @@ return [
             // 'as additional' => 'pkpudev\components\web\ViewBehavior',
         ],
         'db' => $db,
+    ],
+    'modules' => [
+        'admin' => [
+            'class' => 'mdm\admin\Module',
+        ],
+        'gridview' =>  [
+            'class' => '\kartik\grid\Module'
+        ],
     ],
     'params' => $params,
 ];

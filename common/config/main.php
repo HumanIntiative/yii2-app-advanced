@@ -8,14 +8,6 @@ return [
         '@npm'   => '@vendor/npm-asset',
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-    'controllerMap' => [
-        'migrate' => [
-            'class' => 'yii\console\controllers\MigrateController',
-            'migrationNamespaces' => [
-                'yii\rbac\migrations',
-            ],
-        ]
-    ],
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',

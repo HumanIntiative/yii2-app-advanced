@@ -15,10 +15,10 @@ class Employee extends BaseEmployee
     const MITRA_MARKETING = 6;
     const RELAWAN = 4;
 
-    public static function find()
+    /*public static function find()
     {
         return new query\EmployeeQuery(get_called_class());
-    }
+    }*/
 
     public static function collection()
     {

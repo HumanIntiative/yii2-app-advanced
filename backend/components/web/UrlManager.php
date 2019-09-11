@@ -9,9 +9,9 @@ class UrlManager extends BaseUrlManager
     public $enablePrettyUrl = true;
     public $enableStrictParsing = false;
     public $showScriptName = false;
-
-    public function init()
-    {
-        parent::init();
-    }
+    public $rules = [
+        '<controller:\w+>/<id:\d+>' => '<controller>/view',
+        '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+        '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+    ];
 }

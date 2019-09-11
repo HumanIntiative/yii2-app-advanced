@@ -42,6 +42,14 @@ class User extends Employee implements \yii\web\IdentityInterface
     }
 
     /**
+     * Mapping attribute user_name
+     */
+    public function getUsername()
+    {
+        return $this->user_name;
+    }
+
+    /**
      * @inheritdoc
      */
     public function getAuthKey()
