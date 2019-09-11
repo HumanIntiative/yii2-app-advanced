@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\components\rbac;
+namespace common\components\rbac;
 
 class Assignment extends \mdm\admin\models\Assignment
 {

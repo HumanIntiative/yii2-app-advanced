@@ -1,8 +1,8 @@
 <?php
 
-namespace backend\components\web;
+namespace common\components\web;
 
-use backend\models\Branch;
+use common\models\Branch;
 use mdm\admin\components\Helper;
 
 trait WebUserTrait

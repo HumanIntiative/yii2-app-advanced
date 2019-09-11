@@ -3,8 +3,8 @@
 namespace backend\controllers\rbac;
 
 use Yii;
+use common\components\rbac\AuthItem;
 use mdm\admin\controllers\RoleController as BaseRoleController;
-use backend\components\rbac\AuthItem;
 use yii\web\NotFoundHttpException;
 
 /**

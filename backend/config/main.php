@@ -37,7 +37,7 @@ return [
             'errorAction' => 'site/error',
         ],
         'urlManager' => [
-            'class'=>'backend\components\web\UrlManager',
+            'class'=>'common\components\web\UrlManager',
         ],
         'view' => [
             'class' => 'yii\web\View',

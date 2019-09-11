@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use common\models\Employee as EmployeeModel;
 
 /**
-* Employee represents the model behind the search form about `app\models\Employee`.
+* Employee represents the model behind the search form about `common\models\Employee`.
 */
 class Employee extends EmployeeModel
 {

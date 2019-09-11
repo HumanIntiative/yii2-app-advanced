@@ -2,13 +2,13 @@
 
 if (getenv('YII_DEBUG')==1) {
     return [
-        'class' => 'backend\components\web\WebUser',
+        'class' => 'common\components\web\WebUser',
         'identityClass' => 'common\models\User',
         'enableAutoLogin' => true,
     ];
 } else {
     return [
-        'class' => 'backend\components\web\WebUserSaml',
+        'class' => 'common\components\web\WebUserSaml',
         'identityClass' => 'common\models\User',
         'autoloaderPath'=>'/var/www/simplesamlphp/1.14.11/lib/_autoload.php',
         'authSource'=>'cmn-client',

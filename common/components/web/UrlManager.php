@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\components\web;
+namespace common\components\web;
 
 use yii\web\UrlManager as BaseUrlManager;
 

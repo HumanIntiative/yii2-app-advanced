@@ -4,10 +4,7 @@ namespace backend\controllers\rbac;
 
 use Yii;
 use mdm\admin\controllers\AssignmentController as BaseController;
-use backend\components\rbac\Assignment;
-use backend\models\ComBranch;
-use backend\models\Company;
-use yii\helpers\ArrayHelper;
+use common\components\rbac\Assignment;
 use yii\helpers\Html;
 
 class AssignmentController extends BaseController
