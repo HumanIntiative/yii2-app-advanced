@@ -7,15 +7,6 @@ use yii\base\Widget;
 
 class ApplicationMenu extends Widget
 {
-    public $env = 'prod'; // dev|prod
-    public $domain_url;
-
-    public function init()
-    {
-        parent::init();
-        $this->domain_url = $this->domain_url ?: getenv('DOMAIN_URL');
-    }
-
     public function run()
     {
         // Vars
@@ -25,8 +16,7 @@ class ApplicationMenu extends Widget
         echo Menu::widget([
             'options'=>['class'=>'sidebar-menu'],
             'items'=>[
-                ['label'=>'MAIN NAVIGATION', 'options'=>['class'=>'header']],
-                ['label'=>'Intranet Home', 'icon'=>'home', 'url'=>'http://intranet.'.$this->domain_url],
+                // ['label'=>'MAIN NAVIGATION', 'options'=>['class'=>'header']],
                 ['label'=>'Dashboard', 'icon'=>'dashboard', 'url'=>['/']],
                 [
                     'label'=>'Setting',

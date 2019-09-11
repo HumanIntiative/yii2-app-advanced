@@ -2,7 +2,6 @@
 
 namespace backend\widgets;
 
-use app\models\view\VwPosition;
 use Yii;
 use yii\base\Widget;
 use yii\helpers\Html;
@@ -29,18 +28,6 @@ class UserMenu extends Widget
                     <?= !Yii::$app->user->isGuest ? Yii::$app->user->identity->full_name : "Guest" ?>
                     <small><?= Yii::$app->user->identity->birth_place ?></small>
                 </p>
-            </li>
-            <!-- Menu Body -->
-            <li class="user-body">
-                <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                </div>
-                <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                </div>
-                <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                </div>
             </li>
             <!-- Menu Footer-->
             <li class="user-footer">
