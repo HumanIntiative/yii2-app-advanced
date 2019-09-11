@@ -1,10 +1,9 @@
 <?php
 
-namespace backend\controllers\rbac;
+namespace common\rbac;
 
 use Yii;
 use mdm\admin\controllers\AssignmentController as BaseController;
-use common\components\rbac\Assignment;
 use yii\helpers\Html;
 
 class AssignmentController extends BaseController

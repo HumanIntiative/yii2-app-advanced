@@ -1,9 +1,8 @@
 <?php
 
-namespace backend\controllers\rbac;
+namespace common\rbac;
 
 use Yii;
-use common\components\rbac\AuthItem;
 use mdm\admin\controllers\RoleController as BaseRoleController;
 use yii\web\NotFoundHttpException;
 

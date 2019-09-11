@@ -1,10 +1,12 @@
 <?php
 
 $auth = require(Yii::getAlias('@common/config/auth.php'));
-$db = require(Yii::getAlias('@common/config/db.php'));
+$db   = require(Yii::getAlias('@common/config/db.php'));
+$log  = require(Yii::getAlias('@common/config/log.php'));
+$user = require(Yii::getAlias('@common/config/user.php'));
 
 $params = array_merge(
-    require __DIR__ . '/../../common/config/params.php',
+    require Yii::getAlias('@common/config/params.php'),
     require __DIR__ . '/params.php'
 );
 
@@ -17,51 +19,29 @@ return [
     'defaultRoute' => 'dashboard',
     'params' => $params,
     'components' => [
+        'authManager' => $auth,
+        'db' => $db,
+        'log' => $log,
+        'user' => $user,
+        'errorHandler' => [
+            'errorAction' => 'site/error',
+        ],
         'request' => [
             'cookieValidationKey' => getenv('COOKIE_VALIDATION_KEY'),
         ],
-        'user' => require(__DIR__.'/user.php'),
         'session' => [
             'name' => 'advanced-backend',
-        ],
-        'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
-        ],
-        'errorHandler' => [
-            'errorAction' => 'site/error',
         ],
         'urlManager' => [
             'class'=>'common\components\web\UrlManager',
         ],
         'view' => [
-            'class' => 'yii\web\View',
-            'theme' => [
-                'pathMap' => [
-                    '@app/views' => '@app/views/themes/adminlte'
-                ],
-            ],
-            // 'as additional' => 'pkpudev\components\web\ViewBehavior',
+            'class' => 'common\components\web\View',
         ],
-        'db' => $db,
-        'authManager' => $auth,
     ],
     'modules' => [
         'admin' => [
-            'class' => 'mdm\admin\Module',
-            'controllerMap' => [
-                'assignment' => [
-                    'class' => 'backend\controllers\rbac\AssignmentController',
-                ],
-                'role' => [
-                    'class' => 'backend\controllers\rbac\RoleController',
-                ],
-            ],
+            'class' => 'common\modules\AdminModule',
         ],
         'gridview' =>  [
             'class' => '\kartik\grid\Module'
