@@ -10,6 +10,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
+    'name' => 'HI Institute',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'backend\controllers',
@@ -53,6 +54,14 @@ return [
     'modules' => [
         'admin' => [
             'class' => 'mdm\admin\Module',
+            'controllerMap' => [
+                'assignment' => [
+                    'class' => 'backend\controllers\rbac\AssignmentController',
+                ],
+                'role' => [
+                    'class' => 'backend\controllers\rbac\RoleController',
+                ],
+            ],
         ],
         'gridview' =>  [
             'class' => '\kartik\grid\Module'
