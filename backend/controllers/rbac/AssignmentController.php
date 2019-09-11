@@ -30,14 +30,6 @@ class AssignmentController extends BaseController
                     return $this->getUserRoleLinks($model->id);
                 },
             ],
-            /*[
-                'attribute' => 'branch_id',
-                'label' => 'Lokasi',
-                'filter' => ArrayHelper::map(ComBranch::find()->all(), 'id', 'location'),
-                'value' => function($model, $key, $index, $column) {
-                    return $model->branch ? $model->branch->location : '';
-                },
-            ],*/
             [
                 'attribute' => 'user_status',
                 'label' => 'Status User',
@@ -46,17 +38,8 @@ class AssignmentController extends BaseController
                     return $model->user_status==1 ? 'Aktif' : 'Tidak Aktif';
                 },
             ],
-            /*[
-                'attribute' => 'company_id',
-                'label' => 'Com',
-                'filter' => ArrayHelper::map(Company::find()->all(), 'id', 'company_name'),
-                'value' => function($model, $key, $index, $column) {
-                    return $model->company ? $model->company->company_name : '';
-                },
-                'visible'=>Yii::$app->user->can('SuperUser'),
-            ],*/
         ];
-        $this->searchClass = 'backend\models\search\Employee';
+        $this->searchClass = 'common\models\search\Employee';
 
         parent::init();
     }

@@ -39,7 +39,7 @@ class ApplicationMenu extends Widget
                     'label'=>'Otorisasi',
                     'icon'=>'unlock-alt',
                     'url'=>'#',
-                    // 'visible'=>$user->can('jagoan'),
+                    'visible'=>$user->can('/admin/*'),
                     'items'=>[
                         [
                             'label'=>'Assignment',

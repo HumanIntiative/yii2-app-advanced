@@ -3,13 +3,13 @@
 if (getenv('YII_DEBUG')==1) {
     return [
         'class' => 'backend\components\web\WebUser',
-        'identityClass' => 'backend\models\User',
+        'identityClass' => 'common\models\User',
         'enableAutoLogin' => true,
     ];
 } else {
     return [
-        'class' => 'app\components\web\WebUserSaml',
-        'identityClass' => 'app\models\User',
+        'class' => 'backend\components\web\WebUserSaml',
+        'identityClass' => 'common\models\User',
         'autoloaderPath'=>'/var/www/simplesamlphp/1.14.11/lib/_autoload.php',
         'authSource'=>'cmn-client',
         'attributesConfig'=>array(
@@ -24,8 +24,5 @@ if (getenv('YII_DEBUG')==1) {
         ),
         'superuserCheck' => true,
         'superuserPermissionName' => 'superuserAccess',
-        'as enhancement' => [
-            'class' => 'app\components\behaviors\User',
-        ],
     ];
 }

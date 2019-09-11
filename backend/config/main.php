@@ -67,10 +67,10 @@ return [
             'class' => '\kartik\grid\Module'
         ],
     ],
-    /*'as access' => [
+    'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
         ],
-    ],*/
+    ],
 ];

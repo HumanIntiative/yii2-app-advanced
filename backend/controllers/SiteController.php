@@ -2,7 +2,7 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\LoginForm;
+use common\models\LoginForm;
 use yii\web\Controller;
 
 /**

@@ -1,9 +1,8 @@
 <?php
 
-namespace backend\models;
+namespace common\models;
 
-use backend\models\base\Employee as BaseEmployee;
-use backend\models\view\VwEmployeeManager;
+use common\models\base\Employee as BaseEmployee;
 use pkpudev\components\data\QueryCollection;
 
 /**
@@ -65,7 +64,7 @@ class Employee extends BaseEmployee
      */
     public function getBranch()
     {
-        return $this->hasOne(\backend\models\Branch::className(), ['id' => 'branch_id']);
+        return $this->hasOne(\common\models\Branch::className(), ['id' => 'branch_id']);
     }
 
     /**
@@ -73,6 +72,6 @@ class Employee extends BaseEmployee
      */
     public function getCompany()
     {
-        return $this->hasOne(\backend\models\Company::className(), ['id' => 'company_id']);
+        return $this->hasOne(\common\models\Company::className(), ['id' => 'company_id']);
     }
 }
