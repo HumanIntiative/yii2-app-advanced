@@ -46,13 +46,6 @@ class Employee extends BaseEmployee
         ];
     }
 
-    public function getPosition_detail()
-    {
-        return ($position = $this->position) ?
-            sprintf('%s - %s', $position->position_name, $position->department) :
-            ' - ';
-    }
-
     public function getContact_detail()
     {
         return $this->full_name ? $this->full_name . " "
@@ -81,13 +74,5 @@ class Employee extends BaseEmployee
     public function getCompany()
     {
         return $this->hasOne(\backend\models\Company::className(), ['id' => 'company_id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPosition()
-    {
-        return $this->hasOne(\backend\models\view\VwPosition::className(), ['employee_id' => 'id']);
     }
 }

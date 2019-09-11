@@ -1,5 +1,6 @@
 <?php
 
+$auth = require(Yii::getAlias('@common/config/auth.php'));
 $db = require(Yii::getAlias('@common/config/db.php'));
 
 $params = array_merge(
@@ -10,16 +11,16 @@ $params = array_merge(
 return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
-    'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'controllerNamespace' => 'backend\controllers',
+    'defaultRoute' => 'dashboard',
+    'params' => $params,
     'components' => [
         'request' => [
             'cookieValidationKey' => getenv('COOKIE_VALIDATION_KEY'),
         ],
         'user' => require(__DIR__.'/user.php'),
         'session' => [
-            // this is the name of the session cookie used for login on the backend
             'name' => 'advanced-backend',
         ],
         'log' => [
@@ -47,6 +48,7 @@ return [
             // 'as additional' => 'pkpudev\components\web\ViewBehavior',
         ],
         'db' => $db,
+        'authManager' => $auth,
     ],
     'modules' => [
         'admin' => [
@@ -56,5 +58,10 @@ return [
             'class' => '\kartik\grid\Module'
         ],
     ],
-    'params' => $params,
+    /*'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/*',
+        ],
+    ],*/
 ];

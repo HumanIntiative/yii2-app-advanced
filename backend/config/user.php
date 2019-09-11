@@ -1,15 +1,12 @@
 <?php
 
-#if (YII_DEBUG) {
+if (getenv('YII_DEBUG')==1) {
     return [
         'class' => 'backend\components\web\WebUser',
         'identityClass' => 'backend\models\User',
         'enableAutoLogin' => true,
-        /*'as enhancement' => [
-            'class' => 'backend\components\behaviors\User',
-        ],*/
     ];
-/*} else {
+} else {
     return [
         'class' => 'app\components\web\WebUserSaml',
         'identityClass' => 'app\models\User',
@@ -31,4 +28,4 @@
             'class' => 'app\components\behaviors\User',
         ],
     ];
-}*/
+}

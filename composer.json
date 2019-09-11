@@ -8,7 +8,7 @@
         "yiisoft/yii2-bootstrap": "~2.0",
         "yiisoft/yii2-shell": "~2.0",
         "yiisoft/yii2-swiftmailer": "~2.1",
-        "dmstr/yii2-adminlte-asset": "~2.6",
+        "dmstr/yii2-adminlte-asset": "~2.4.0",
         "johnitvn/yii2-ajaxcrud": "*",
         "kartik-v/yii2-builder": "*",
         "kartik-v/yii2-date-range": "*",
