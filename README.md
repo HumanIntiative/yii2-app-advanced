@@ -1,32 +1,42 @@
-### Installing using Docker
+## App Advanced PkpuDev
+> Build for Pkpu Dev Team &middot;
 
-Install the application dependencies
+A brief description of your project here.
 
-    docker-compose run --rm backend composer install
+### Cloning
 
-Initialize the application by running the `init` command within a container
+Simply clone this repo to your computer and change <AppName> to your liking
 
-    docker-compose run --rm backend /app/init
+```shell
+git clone git@github.com:pkpudev/yii2-app-advanced.git <AppName>
+```
 
-Add a database service like and adjust the components['db'] configuration in `common/config/main-local.php` accordingly.
-    
-        'dsn' => 'mysql:host=mysql;dbname=yii2advanced',
-        'username' => 'yii2advanced',
-        'password' => 'secret',
+### Installing packages
 
-> Docker networking creates a DNS entry for the host `mysql` available from your `backend` and `frontend` containers.
+```shell
+composer install -vvv
+```
 
-> If you want to use another database, such a Postgres, uncomment the corresponding section in `docker-compose.yml` and update your database connection.
+### Chmod
 
->         'dsn' => 'pgsql:host=pgsql;dbname=yii2advanced',
+```shell
+chmod 777 backend/runtime
+chmod 777 backend/web/assets
+chmod 777 frontend/runtime
+chmod 777 frontend/web/assets
+```
 
-For more information about Docker setup please visit the [guide](http://www.yiiframework.com/doc-2.0/guide-index.html).
+### Configure env file
 
-Run the migrations
+```shell
+cp .env-example .env
+```
+
+Use relevant configuration
+
+### Coding
 
     docker-compose run --rm backend yii migrate
-           
-Start the application
 
     docker-compose up -d
     
@@ -34,3 +44,11 @@ Access it in your browser by opening
 
 - frontend: http://127.0.0.1:20080
 - backend: http://127.0.0.1:21080
+
+### Use Git
+
+### Deploy
+
+```shell
+./rsync.sh
+```
