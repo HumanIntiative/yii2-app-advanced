@@ -1,9 +1,9 @@
 <?php
 
 use Yii;
-use yii\helpers\Html;
 use dmstr\web\AdminLteAsset;
-use backend\assets\AppAsset;
+use frontend\assets\AppAsset;
+use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
