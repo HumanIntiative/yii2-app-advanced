@@ -1,47 +1,49 @@
 <?php
+
+$auth = require(Yii::getAlias('@common/config/auth.php'));
+$db   = require(Yii::getAlias('@common/config/db.php'));
+$log  = require(Yii::getAlias('@common/config/log.php'));
+$user = require(Yii::getAlias('@common/config/user.php'));
+
 $params = array_merge(
-    require __DIR__ . '/../../common/config/params.php',
+    require Yii::getAlias('@common/config/params.php'),
     require __DIR__ . '/params.php'
 );
 
 return [
     'id' => 'app-frontend',
+    'name' => 'HI Institute',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+    'defaultRoute' => 'home',
+    'params' => $params,
     'components' => [
-        'request' => [
-            'csrfParam' => '_csrf-frontend',
-        ],
-        'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
-        ],
-        'session' => [
-            // this is the name of the session cookie used for login on the frontend
-            'name' => 'advanced-frontend',
-        ],
-        'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
-        ],
+        'authManager' => $auth,
+        'db' => $db,
+        'log' => $log,
+        'user' => $user,
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
+        'request' => [
+            'csrfParam' => '_csrf-frontend',
+            'cookieValidationKey' => getenv('COOKIE_VALIDATION_KEY'),
         ],
-        */
+        'session' => [
+            'name' => 'advanced-frontend',
+        ],
+        'urlManager' => [
+            'class'=>'common\components\web\UrlManager',
+        ],
+        'view' => [
+            'class' => 'common\components\web\FrontendView',
+        ],
     ],
-    'params' => $params,
+    /*'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/*',
+        ],
+    ],*/
 ];

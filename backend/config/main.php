@@ -36,7 +36,7 @@ return [
             'class'=>'common\components\web\UrlManager',
         ],
         'view' => [
-            'class' => 'common\components\web\View',
+            'class' => 'common\components\web\BackendView',
         ],
     ],
     'modules' => [

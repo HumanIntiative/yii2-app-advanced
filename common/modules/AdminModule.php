@@ -15,6 +15,9 @@ class AdminModule extends Module
         $this->controllerMap = [
             'assignment' => ['class' => 'common\rbac\AssignmentController'],
             'role' => ['class' => 'common\rbac\RoleController'],
+            'permission' => ['class' => 'mdm\admin\controllers\PermissionController'],
+            'route'=> ['class' => 'mdm\admin\controllers\RouteController'],
+            'rule'=> ['class' => 'mdm\admin\controllers\RuleController'],
         ];
     }
 }
